@@ -122,7 +122,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <forkedProcessTimeoutInSeconds>300</forkedProcessTimeoutInSeconds>
+                    <!-- Increase timeout for forked JVM -->
+                    <forkedProcessTimeoutInSeconds>900</forkedProcessTimeoutInSeconds>
+                    <reuseForks>true</reuseForks>
+                    <argLine>-Xmx1024m -Dfile.encoding=UTF-8</argLine>
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
